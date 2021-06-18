@@ -7,11 +7,11 @@ const createMenu = ()=>{
             </div>
             <div class="input">
                 <label for="m">Enter m</label>
-                <input id="m" name="m" type="text" value="3">
+                <input id="m" name="m" type="text" value="3" disabled>
             </div>
             <div class="input">
                 <label for="n">Enter n in 2*n+1</label>
-                <input id="n" name="n" type="text" value="12">
+                <input id="n" name="n" type="text" value="12" disabled>
             </div>
             <button onclick="startGame()">Start game</button>
         </div>

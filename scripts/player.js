@@ -8,8 +8,8 @@ const createPlayer = (isFirst)=> {
                 ${isFirstMovePicked? '😎' : '🤖' }
             </div>
             <div>
-                <div id="${isFirstMovePicked? 'user' : 'ai' }-Turn" class="pl-Turn ${isFirstMovePicked? 'active-turn' : '' }">
-                    ${isFirstMovePicked? 'Your turn ' : '' }               
+                <div id="${isFirstMovePicked? 'user' : 'ai' }-Turn" class="pl-Turn ${isFirst? 'active-turn' : '' }">
+                    ${isFirst? 'Your turn ' : '' }               
                 </div>
                 <div id="${isFirstMovePicked? 'user' : 'ai' }-Score" class="pl-Score">
                     📍${isFirstMovePicked? userMatches : AIMatches }
@@ -24,8 +24,8 @@ const createPlayer = (isFirst)=> {
                 ${isFirstMovePicked? '🤖' : '😎' }
             </div>
             <div>
-                <div id="${isFirstMovePicked? 'ai' : 'user' }-Turn" class="pl-Turn ${isFirstMovePicked? '' : 'active-turn' }">
-                    ${isFirstMovePicked? '' : 'Your turn ' }    
+                <div id="${isFirstMovePicked? 'ai' : 'user' }-Turn" class="pl-Turn ${isFirst? 'active-turn' : '' }">
+                    ${isFirst? 'Your turn ' : '' }   
                 </div>
                 <div id="${isFirstMovePicked? 'ai' : 'user' }-Score" class="pl-Score">
                     📍${isFirstMovePicked? AIMatches : userMatches }
