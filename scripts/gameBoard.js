@@ -7,15 +7,12 @@ const createGameBoard = ()=> {
     
     <div id="score">
         <div id="matchesLeft">
-            📍${N-currentlyTaken} left
+            📍${N-(userMatches + AIMatches)} left
         </div>
-<!--        <div id="playersInput">-->
-            <label>
-                <input type="text" >
-            </label>
-            <button onclick="userTurn()">Take matches</button>
-<!--        </div>-->
-        
+        <label>
+            <input type="text" value="2">
+        </label>
+        <button onclick="userTurn()">Take matches</button>
     </div>
     
     ${createPlayer(false)}
@@ -29,10 +26,6 @@ const returnToMenu = ()=>{
 };
 
 
-const userTurn = ()=>{
-
-    changeTurn();
-};
 
 const changeTurn = ()=>{
     if (playersTurn) {
@@ -41,6 +34,9 @@ const changeTurn = ()=>{
 
         getEl('ai-Turn').classList.add('active-turn');
         getEl('ai-Turn').innerText = 'Your turn';
+        //todo
+        //disable user's input
+        AITurn();
     } else {
         getEl('user-Turn').classList.add('active-turn');
         getEl('user-Turn').innerText = 'Your turn';
@@ -49,6 +45,47 @@ const changeTurn = ()=>{
         getEl('ai-Turn').innerText = '';
     }
 };
+
+const userTurn = ()=>{
+    //todo
+    //get value from input
+    validate();
+};
 const AITurn = ()=>{
+    //todo
+    //select how many to take
+    validate();
+};
+const validate = (isUser, k)=>{
+    //todo
+    //check 2*N+1 - (userMatches + AIMatches) > 0????
+    //update player's score
+    if (isUser)
+        userMatches += k;
+    else
+        AIMatches += k;
+
+    if (areMatchedLeft){
+        //todo show winner
+        showWinner();
+    } else {
+        changeTurn();
+    }
 
 };
+
+const areMatchedLeft = ()=>{
+    if (2*N+1 - (userMatches + AIMatches) > 0)
+        return true;
+    return false;
+};
+const showWinner = ()=>{
+    //todo
+    //
+    if (userMatches%2 === 0){
+        //user won
+    } else {
+        //ai won
+    }
+
+}

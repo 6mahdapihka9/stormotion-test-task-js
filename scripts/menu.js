@@ -13,12 +13,12 @@ const createMenu = ()=>{
                 <label for="n">Enter n in 2*n+1</label>
                 <input id="n" name="n" type="text" value="12">
             </div>
-            <button onclick="setGameStarted()">Start game</button>
+            <button onclick="startGame()">Start game</button>
         </div>
     `;
 }
 
-const setGameStarted = ()=>{
+const startGame = ()=>{
     if (isNaN(+getEl('m').value) || isNaN(+getEl('n').value) ||
             +getEl('m').value > +getEl('n').value ||
             +getEl('m').value < 1 || +getEl('n').value < 1) {

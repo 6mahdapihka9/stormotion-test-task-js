@@ -3,7 +3,7 @@ const crEl = tag => document.createElement(tag);
 const getEl = id => document.getElementById(id);
 
 //variables
-let gameStarted, isFirstMovePicked, M, N, currentlyTaken, playersTurn, userMatches, AIMatches;
+let isFirstMovePicked, M, N, currentlyTaken, playersTurn, userMatches, AIMatches;
 
 
 //funcs
