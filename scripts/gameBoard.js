@@ -49,14 +49,25 @@ const changeTurn = ()=>{
 };
 
 const userTurn = () => validate(true, +getEl('matchValueInput').value);
-const AITurn = ()=>{
-    // let lefty = 2*N+1 - (userMatches + AIMatches);
-    // if (isFirstMovePicked && !AIMatches){
-    //     validate(false, 1);
-    // } else
-    //     validate(false, M -M%2 > lefty? lefty - lefty%2 : M -M%2);
-
-    validate(false, 1);
+const AITurn = ()=> {
+    let lefty = 2 * N + 1 - (userMatches + AIMatches);
+    if (isFirstMovePicked){
+        if ((lefty - 1) % 4 === 0 || (lefty - 1) % 4 === 1)
+            validate(false,1);
+        else if ((lefty - 2) % 4 === 0 || (lefty - 2) % 4 === 1)
+            validate(false, 2);
+        else if ((lefty - 3) % 4 === 0 || (lefty - 3) % 4 === 1) {
+            validate(false,3);
+        }
+    } else {
+        if ((lefty - 1) % 4 === 0 || (lefty - 1) % 4 === 1)
+            validate(false, (!AIMatches) ? 1 : 1);
+        else if ((lefty - 2) % 4 === 0 || (lefty - 2) % 4 === 1)
+            validate(false, (!AIMatches) ? 1 : 2);
+        else if ((lefty - 3) % 4 === 0 || (lefty - 3) % 4 === 1) {
+            validate(false, (!AIMatches) ? 1 : 3);
+        }
+    }
 };
 const validate = (isUser, val)=>{
     console.log(

@@ -29,5 +29,6 @@ const startGame = ()=>{
 
     getEl('main').innerHTML = createGameBoard();
 
-    AITurn();
+    if (!isFirstMovePicked)
+        AITurn();
 };
