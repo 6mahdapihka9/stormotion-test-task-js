@@ -28,4 +28,6 @@ const startGame = ()=>{
 
 
     getEl('main').innerHTML = createGameBoard();
+
+    AITurn();
 };

@@ -22,7 +22,6 @@ const createGameBoard = ()=> {
 };
 
 const changeTurn = ()=>{
-    console.log('is users turn',playersTurn);
     if (playersTurn) {
         getEl('user-Turn').classList.remove('active-turn');
         getEl('user-Turn').innerText = '';
@@ -60,6 +59,13 @@ const AITurn = ()=>{
     validate(false, 1);
 };
 const validate = (isUser, val)=>{
+    console.log(
+        !isNaN(val),
+        val > 0,
+        val <= M,
+        val <= 2*N+1 - (userMatches + AIMatches)
+    )
+
     if (!isNaN(val) &&
         val > 0 &&
         val <= M &&
@@ -82,7 +88,7 @@ const subtractValFrom2N1 = ()=>{
     getEl('user-Score').innerText = `📍${userMatches}`;
     getEl('ai-Score').innerText = `📍${AIMatches}`;
 
-    if (areMatchedLeft){
+    if (areMatchedLeft()){
         changeTurn();
     } else {
         showWinner();
@@ -94,16 +100,13 @@ const areMatchedLeft = ()=>{
     return false;
 };
 const showWinner = ()=>{
-    console.log('pp');
     if (userMatches%2 === 0){
-        //user won
         getEl('user-Turn').classList.add('active-turn');
         getEl('user-Turn').innerText = 'YOU WON!';
 
         getEl('ai-Turn').classList.remove('active-turn');
         getEl('ai-Turn').innerText = 'You lose';
     } else {
-        //ai won
         getEl('ai-Turn').classList.add('active-turn');
         getEl('ai-Turn').innerText = 'YOU WON!';
 
@@ -111,4 +114,6 @@ const showWinner = ()=>{
         getEl('user-Turn').innerText = 'You lose';
     }
 
+    getEl('matchValueInput').disabled = true;
+    getEl('takeMatches').disabled = true;
 }

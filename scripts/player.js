@@ -18,6 +18,7 @@ const createPlayer = (isFirst)=> {
         </div>
         `;
     else
+
         return `
         <div class="player">
             <div id="${isFirstMovePicked? 'ai' : 'user' }-Icon" class="pl-Icon">
